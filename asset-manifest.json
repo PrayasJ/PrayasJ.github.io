@@ -1,16 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.073c9b0a.css",
-    "main.js": "/static/js/main.75c3668b.js",
-    "static/js/787.71e672d5.chunk.js": "/static/js/787.71e672d5.chunk.js",
-    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/static/css/main.740b09a2.css",
+    "main.js": "/static/js/main.d8fe2122.js",
+    "static/media/self.png": "/static/media/self.f6aff46db687263f3036.png",
+    "static/media/bwvn.png": "/static/media/bwvn.da07b1513f5fa89dad9a.png",
+    "static/media/greenable.png": "/static/media/greenable.d0efd5018c0b4efc606e.png",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/dataToolBelt.png": "/static/media/dataToolBelt.215cece032c502c472ce.png",
+    "static/media/blinded.png": "/static/media/blinded.af7d65ae0e48ffa39fed.png",
+    "static/media/mvs.png": "/static/media/mvs.648486890ceea1b0e167.png",
+    "static/media/fontawesome-webfont.eot": "/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/rainbow-dash.png": "/static/media/rainbow-dash.a19f034e5ae0782c203d.png",
+    "static/media/GSoC - Week 4-5.md": "/static/media/GSoC - Week 4-5.ba5183c75f93b61c78d1.md",
+    "static/media/GSoC - Week 6.md": "/static/media/GSoC - Week 6.ce8865c4e089958e7803.md",
+    "static/media/GSoC - Week 2-3.md": "/static/media/GSoC - Week 2-3.3973fd0856175239b58e.md",
+    "static/media/GSoC - Week 1.md": "/static/media/GSoC - Week 1.a22ca12c7464570bec3f.md",
     "index.html": "/index.html",
-    "main.073c9b0a.css.map": "/static/css/main.073c9b0a.css.map",
-    "main.75c3668b.js.map": "/static/js/main.75c3668b.js.map",
-    "787.71e672d5.chunk.js.map": "/static/js/787.71e672d5.chunk.js.map"
+    "main.740b09a2.css.map": "/static/css/main.740b09a2.css.map",
+    "main.d8fe2122.js.map": "/static/js/main.d8fe2122.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.75c3668b.js"
+    "static/css/main.740b09a2.css",
+    "static/js/main.d8fe2122.js"
   ]
 }
