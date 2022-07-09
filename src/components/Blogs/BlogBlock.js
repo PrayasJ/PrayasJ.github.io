@@ -20,7 +20,7 @@ class BlogBlock extends Component {
 	componentWillMount() {
 		fetch(this.state.md).then((response) => {
 			response.text().then((text) => {
-				text = text.split('\n\n').splice(1)
+				text = text.split('\n').splice(1)
 				text.length = 5
 				text = text.join("\n")
 				text = text.substring(0, 128)

@@ -5,15 +5,35 @@ nav {
 }
 
 .active {
-  border-bottom: 5px solid;
+  animation: menuclick 0.25s linear forwards;
   border-image-slice: 1;
+  font-weight: bolder;
 }
 
 li {
+  font-family: monospace;
   transition: $transition;
 
   &:hover {
-    transform: translateY(-3px);
+    animation: menuhover 0.75s ease-in-out;
     transition: $transition;
   }
+}
+
+@keyframes menuclick{
+  0% {
+    border-bottom: 0px solid;
+  }
+  100% {
+    border-bottom: 2px solid;
+  }
+}
+
+@keyframes menuhover{
+  0% {
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {}
 }

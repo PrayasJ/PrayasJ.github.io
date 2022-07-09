@@ -44,7 +44,7 @@ export default function BaseLayout() {
                <Routes>
                   <Route exact path={'/'} element={<Home/>}/>
                   <Route exact path={'/about'} element={<About/>}/>
-                  <Route exact path={'/portfolio'} element={<Portfolio/>}/>
+                  <Route exact path={'/portfolio'} element={<Portfolio darkMode={darkMode}/>}/>
                   <Route exact path={'/blogs'} element={<Blogs/>}/>
                   <Route path="/blogs/:id" element={<BlogPage/>} />
                   <Route path="*" element={<NotFound darkMode={darkMode}/>} />
