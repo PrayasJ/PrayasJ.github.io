@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.359e53c0.css",
-    "main.js": "/static/js/main.ea87a8ec.js",
+    "main.css": "/static/css/main.4f597a09.css",
+    "main.js": "/static/js/main.ca35cf4a.js",
     "static/media/self.png": "/static/media/self.689bd680aeb18d8a5724.png",
     "static/media/bwvn.png": "/static/media/bwvn.da07b1513f5fa89dad9a.png",
     "static/media/greenable.png": "/static/media/greenable.d0efd5018c0b4efc606e.png",
@@ -14,16 +14,16 @@
     "static/media/fontawesome-webfont.woff?v=4.7.0": "/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "static/media/rainbow-dash.png": "/static/media/rainbow-dash.a19f034e5ae0782c203d.png",
-    "static/media/GSoC - Week 4-5.md": "/static/media/GSoC - Week 4-5.ba5183c75f93b61c78d1.md",
-    "static/media/GSoC - Week 6.md": "/static/media/GSoC - Week 6.ce8865c4e089958e7803.md",
-    "static/media/GSoC - Week 2-3.md": "/static/media/GSoC - Week 2-3.3973fd0856175239b58e.md",
-    "static/media/GSoC - Week 1.md": "/static/media/GSoC - Week 1.a22ca12c7464570bec3f.md",
+    "static/media/GSoC - Week 4-5.md": "/static/media/GSoC - Week 4-5.d3da18c9fac5af1ddc44.md",
+    "static/media/GSoC - Week 6.md": "/static/media/GSoC - Week 6.5c1f8fe2b88aa74082b4.md",
+    "static/media/GSoC - Week 2-3.md": "/static/media/GSoC - Week 2-3.0c584005eaf7503ae043.md",
+    "static/media/GSoC - Week 1.md": "/static/media/GSoC - Week 1.89a88669d9ca7d6bb9f5.md",
     "index.html": "/index.html",
-    "main.359e53c0.css.map": "/static/css/main.359e53c0.css.map",
-    "main.ea87a8ec.js.map": "/static/js/main.ea87a8ec.js.map"
+    "main.4f597a09.css.map": "/static/css/main.4f597a09.css.map",
+    "main.ca35cf4a.js.map": "/static/js/main.ca35cf4a.js.map"
   },
   "entrypoints": [
-    "static/css/main.359e53c0.css",
-    "static/js/main.ea87a8ec.js"
+    "static/css/main.4f597a09.css",
+    "static/js/main.ca35cf4a.js"
   ]
 }
