@@ -11,6 +11,8 @@ import week1 from '../blogs/GSoC - Week 1.md'
 import week2_3 from '../blogs/GSoC - Week 2-3.md'
 import week4_5 from '../blogs/GSoC - Week 4-5.md'
 import week6 from '../blogs/GSoC - Week 6.md'
+import node_pkg from '../blogs/Creating Node.js packages.md'
+import week7_8 from '../blogs/GSoC - Week 7-8.md'
 
 /* Hi there! Thanks for checking out my portfolio template. Be sure to read the comments to get a better understanding of
 how to make this template work best for you! */
@@ -188,24 +190,34 @@ export const info = {
     ],
     blogs: [
         {
-            title: 'GSoC - Week 1',
+            title: 'Selection to GSoC',
             md: week1,
             date: 'May 22, 2022'
         },
         {
-            title: 'GSoC - Week 2-3',
+            title: 'Understanding Portal Project',
             md: week2_3,
             date: 'June 13, 2022'
         },
         {
-            title: 'GSoC - Week 4-5',
+            title: 'Parallel Processing in R',
             md: week4_5,
             date: 'June 25, 2022'
         },
         {
-            title: 'GSoC - Week 6',
+            title: 'Parallel Casting Function',
             md: week6,
             date: 'July 2, 2022'
+        },
+        {
+            title: 'Creating Node.js Packages',
+            md: node_pkg,
+            date: 'July 11, 2022'
+        },
+        {
+            title: 'Add Windows Support',
+            md: week7_8,
+            date: 'July 16, 2022'
         }
     ]
 }

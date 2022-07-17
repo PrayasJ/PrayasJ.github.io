@@ -38,18 +38,18 @@
   }
 }
 
-.button1:active {
-    animation: clickAnim 1s ease-in-out;
-}
+// .button1:active {
+//     animation: clickAnim 1s ease-in-out;
+// }
 
-@keyframes clickAnim{
-    0% {
+// @keyframes clickAnim{
+//     0% {
 
-    }
-    50% {
-        transform: rotateX(90deg);
-    }
-    100% {
+//     }
+//     50% {
+//         transform: rotateX(90deg);
+//     }
+//     100% {
 
-    }
-}
+//     }
+// }
