@@ -1,5 +1,7 @@
 # Creating Node.js packages
 
+---
+
 Hey everyone!
 
 Sometimes, on cold days, I love to wrap myself up in a blanket and just enjoy a cup of hot coffee. This was my weird attempt to introduce packaging software to you.
@@ -9,6 +11,8 @@ Today we'll be wrapping up a set of code inside a package and publishing it to `
 Before going into packaging and nodejs and npm, let us first understand the requirements of packaging. 
 
 ## What is packaging?
+
+---
 
 Let us consider a case where you have created a programme to generate random numbers (yay!). It is more efficient than the built-in `Math.random` function, and you wish for others to be able to use it. 
 
@@ -25,6 +29,8 @@ Another common concept with `node.js` is creating *webpacks* for our software fo
 Javascript is a very robust language and can basically run on anything that supports running a browser ~~(even a smart refrigerator, lol)~~. However, `node.js` cannot be run everywhere, and using its package manager requires setting it up. ~~(Smart refrigerators do not come bundled with nodejs, sadly)~~. So in order to distribute them easily, `Webpack` bundles our set of code into static `javascript`, `css` and `HTML`.  
 
 ## How do we create a package in Node.js?
+
+---
 
 Creating a package in `Node.js` is quite simple. Everything in a `Node.js` based project is rooted at its `package.json` file. In it, you define the name, version, dependencies, and set of commands for running, building, and testing (maybe deployment as well). Another great thing is that it also allows you to define an entry point for your software. 
 

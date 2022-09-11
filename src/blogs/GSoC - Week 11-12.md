@@ -1,5 +1,7 @@
 ## GSoC Week 11-12
 
+---
+
 Hey Everyone! Since the project is nearing its end, it is time to wrap it up.
 
 Let's start with some witty humour of course (sorry),
@@ -15,7 +17,9 @@ fix one bug, compile again,
 
 Okay so moving on we'll be talking about documenting the work done so far.
 
-## Adding `multiprocess` to docstringsreference
+## Adding `multiprocess` to docstrings
+
+---
 
 The project **Portalcasting** uses `Roxygen2` to add documentation to the project and build and deploy that documentation over at github pages. To give a gist of how `Roxygen2` works, they are essentially vanilla docstrings present within `R` just less cumbersome. 
 
@@ -26,17 +30,24 @@ As an example to the `Roxygen2` docstrings within **Portalcasting**,
 #'
 #' @description Input/output functions for model control lists.
 #'
-#' @param quiet \code{logical} indicator controlling if messages are printed.
+#' @param quiet \code{logical} indicator controlling if messages 
+#' are printed.
 #'
-#' @param main \code{character} value of the name of the main component of the directory tree. 
+#' @param main \code{character} value of the name of the main 
+#' component of the directory tree. 
 #'
-#' @param models \code{character} vector of name(s) of model(s) to include.
+#' @param models \code{character} vector of name(s) of model(s) to 
+#' include.
 #'
-#' @param settings \code{list} of controls for the directory, with defaults set in \code{\link{directory_settings}}.
+#' @param settings \code{list} of controls for the directory, with 
+#' defaults set in \code{\link{directory_settings}}.
 #'
-#' @param new_model_controls \code{list} of controls for any new models (not in the prefab models) listed in \code{models} that are to be added to the control list and file.
+#' @param new_model_controls \code{list} of controls for any new 
+#' models (not in the prefab models) listed in \code{models} that are 
+#' to be added to the control list and file.
 #'
-#' @return \code{list} of \code{models}' control \code{list}s, \code{\link[base]{invisible}}-ly for \code{write_model_controls}.
+#' @return \code{list} of \code{models}' control \code{list}s, 
+#' \code{\link[base]{invisible}}-ly for \code{write_model_controls}.
 #'  
 #' @name read and write model controls
 #'
@@ -81,6 +92,8 @@ I added this docstring in 5 files namely `R/fill_dir.R`, `R/portalcast.R`, `R/pr
 
 ## Building the Documentation
 
+---
+
 Now that we have created our project and added docstrings to it, its time to build up the documentation that would sit on the github pages.
 
 First and foremost, we need to convert our `.R` files into `.Rd` files so that they are capable of being converted into `.html` files.
@@ -101,6 +114,8 @@ Yet another method to build documentations is through a simple shortcut in **RSt
 
 ## Building Website for Documentation
 
+---
+
 Now that we have our hands on the documentation files in `.Rd` format, it is ideal to put these documentation in the public domain as a static website so to assist that **Portalcasting** uses the package `pkgdown` to build the documentation into static webpages.
 
 Considering that the documentations have example code in them `pkgdown` also provides us with the ability to run the example code while building the static pages and displaying the output for the same in them. However for this project we won't be using that feature of `pkgdown`.
@@ -116,6 +131,8 @@ This is it!
 upon running `pkgdown` a static build for the documetation is built in `docs` directory of the project.
 
 ## Conclusion
+
+---
 
 Understanding how documentations work in `R` and how we could build static webpages for the same has been a great learning task for me because I haven't previously tried documenting my code. 
 

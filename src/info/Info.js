@@ -15,6 +15,9 @@ import node_pkg from '../blogs/Creating Node.js packages.md'
 import week7_8 from '../blogs/GSoC - Week 7-8.md'
 import week9_10 from '../blogs/GSoC - Week 9-10.md'
 import week11_12 from '../blogs/GSoC - Week 11-12.md'
+import final_gsoc from '../blogs/GSoC Final Report.md'
+
+import portal_img from '../img/portalcasting.png'
 
 /* Hi there! Thanks for checking out my portfolio template. Be sure to read the comments to get a better understanding of
 how to make this template work best for you! */
@@ -230,6 +233,11 @@ export const info = {
             title: 'Adding Documentation',
             md: week11_12,
             date: 'August 18, 2022'
+        },
+        {
+            title: 'GSoC Final Report',
+            md: final_gsoc,
+            date: 'August September 11, 2022'
         }
     ]
 }

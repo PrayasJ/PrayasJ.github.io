@@ -1,5 +1,7 @@
 ## GSoC Week 9-10
 
+---
+
 Hey everyone!
 
 Today we'll talk about how not all risks are successful and go over a few weeks of failed attempts.
@@ -13,6 +15,8 @@ As I previously stated, the performance increase in portalcasting after the para
 Let's begin talking about how these two went.
 
 ## Why does `cast` function keep on failing?
+
+---
 
 Whenever I try to run `cast` function in parallel, all the models start failing up when they try to predict the population, and they end up displaying this disheartening message.
 
@@ -76,6 +80,8 @@ All the things that I just mentioned are a bit hypothetical due to the nature of
 
 ## Testing onto a high-powered Server
 
+---
+
 Moving onto the performance issue, since a parallelised project is scallable proportionally to the device it is running on, it would be a great idea to test it all out on a server (atleast that's what I thought). Discussing it with my GSoC mentor, Henry, he provided me with the access to the server ***Portalcasting*** was currently being run on. Apart from that he explained to me how to run the project on the server. The catch being that the execution time of a process could potentially be in hours so it is ideal to create a detachable instance of the process.
 
 To achieve this task, a teminal multiplexer, `tmux` was used. The term sounds fancy but all in all, `tmux` provides a user with the ability to *create* multiple sessions within the same terminal. 
@@ -133,6 +139,8 @@ Simply running `Rscript parallel-test.R | tee parallel-test.log` allowed me to r
 There is however one task still lurking around that I need to figure out and implement in order to complete my GSoC project that is to write a test file which would allow any developer to verify the working of parallelism of the project objectively.
 
 ## Conclusion
+
+---
 
 These couple of weeks have been harsh due to these unexpected bugs and the nature of these bugs. I would have preferred it to work out in a single go but I'll keep on thinking of ways to optimise it further. Apart from that I believe the test file that I have written down would suffice as a test file to compare the functionality of the parallelism of the code. 
 

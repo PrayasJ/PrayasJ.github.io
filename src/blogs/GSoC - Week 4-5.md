@@ -1,5 +1,7 @@
 # GSoC - Week 4-5
 
+---
+
 Hey everyone!
 
 It's story time!
@@ -16,6 +18,8 @@ But before diving into it, let me just say it has been too hot where I live. Can
 
 ## Parallel Processing in R
 
+---
+
 Parallel processing in R is as simple as *"OK Google, how do I Parallel Process in R"*.
 
 The `parallel` package that comes with `R` with its installation has an arsenal of functions to allow us to perform tasks in parallel by allocating cores.
@@ -31,6 +35,8 @@ The specific functions that I would like to talk about today are:
 These three functions are what I would be using during the course of my project. So let us understand these functions better.
 
 ### How does `mclapply` work?
+
+---
 
 Before understanding how `mclapply` works, let's understand how `lapply` works. For that, let's go over a code snippet,
 
@@ -124,6 +130,8 @@ We can see at a glance that tasks that are time-consuming greatly benefit from t
 2. The subtask shouldn't be exhaustive in nature towards the system resources. If the task in itself in its sequential order uses up all the resources present, it would only hamper its runtime if it is parallelized.
 
 ## How do `mcparallel` and `mccollect` work?
+
+---
 
 We already have `mclapply.` Why do we need `mcparallel` and `mccollect`?
 
@@ -250,6 +258,8 @@ Unit: milliseconds
 As a side-note to the whole shenanigan, all three of `mclapply`, `mcparallel`, and `mccollect` work using the low-level function `mcfork`, which creates forked instances of the `R` process. `mcfork` isn't supported on Windows, so just a heads up.
 
 ## Conclusion
+
+---
 
 We now have our tools defined for the project, as well as the areas in which we will use them, and I will be implementing the methods I discussed today into the codebase. ~~Oh boy, it would be a fun experience.~~
 

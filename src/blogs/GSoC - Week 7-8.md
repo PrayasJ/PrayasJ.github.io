@@ -1,5 +1,7 @@
 # GSoC Week 7-8
 
+---
+
 Hey everyone!
 
 [~~Ah shit, here we go again~~](https://knowyourmeme.com/memes/ah-shit-here-we-go-again)
@@ -18,6 +20,8 @@ Today, I'll walk you through two major changes that I made in my quest to add pa
 
 ## Why parallelize `fill_data` further?
 
+---
+
 `fill_data` is the function that is called upon each time we switch between *moons* or *models*. In order to prepare the data for each iteration of our prediction schema, we call upon `fill_data`. So, if we were predicting for 3 moons using 3 models, `fill_data` would be called upon 3 x 3 = 9 times!
 
 So any small change in that would result in a significant time difference in overall usage.
@@ -25,6 +29,8 @@ So any small change in that would result in a significant time difference in ove
 Apart from that, a large chunk of total time consumption is caused by the function `fill_data`, so that is my primary concern right now.
 
 ## Areas of interest in `fill_data`
+
+---
 
 The function `fill_data` calls upon 5 functions to prepare the data directory, which are,
 
@@ -43,6 +49,8 @@ Now, out of these, only `write_dataset_controls`, `prep_rodents`, and `prep_cova
 We'll be applying our implementation similar to our previous usage of `mclapply` onto them. I won't get into details of how they were done since they are identical to our previous usage.
 
 ## Pitch-forks against Windows 😡
+
+---
 
 Okay, I hate to be the bearer of bad news, but I am the only bearer of any kind of news, so let's just get over it.
 
@@ -67,6 +75,8 @@ Using `clusters` works in a similar manner, and this approach is considered to b
 Managing *sockets* is more complicated than forked processes since you have to consider how their response is actually independent of the parent process. **However, using *sockets* is far slower than using *forking*.**
 
 ## Applying Socket approach
+
+---
 
 Getting straight down to business: first and foremost, how do I differentiate between a `unix` and `windows` system?
 
@@ -137,6 +147,8 @@ Unit: seconds
 As can be seen, Unix performs 50% faster than the average, whereas Windows performs 20% faster. This is due to the fact that they use `sockets` to communicate with each other by `poling`, so it takes a bit longer amount of time as compared to making system calls to the same process using the `fork-exec` method.
 
 ## Conclusion
+
+---
 
 I am still unsatisfied with the percentage of time reduced since 50% reduction isn't a great enough feat when it comes to parallel processing. The key reason for this is that they are still essentially calling upon the same directory even in the parallel schema of things. An issue arises from this is that we cannot completely make them independent of each other since they all depend on the current state of that one directory.
 
