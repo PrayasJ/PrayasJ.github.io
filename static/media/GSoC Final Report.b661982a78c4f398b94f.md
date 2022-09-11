@@ -16,7 +16,7 @@ Every file has a metadata so should this right :) ?
 
 - **Name:** Prayas Jain
 
-- **Organization:** [NumFOCUS - Weecology](https://www.weecology.org/)
+- **Organization:** [NumFOCUS - Data Retriever](https://github.com/weecology/retriever)
 
 - **Project Title:** High-performance parallel computing for model fitting and prediction
 
