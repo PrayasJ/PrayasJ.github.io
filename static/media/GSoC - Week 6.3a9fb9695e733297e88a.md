@@ -1,5 +1,7 @@
 # GSoC - Week 6
 
+---
+
 Hey everyone!
 
 Don't worry, I won't be saying anything weird this time around.
@@ -13,6 +15,8 @@ As I mentioned, proooofessional.
 Today, we'll be discussing the implementation of the `fill_data` and `cast` functions in detail and what would speed it up.
 
 ## How does `fill_data` function works?
+
+---
 
 ```r
 fill_data <- function( ... ) {
@@ -31,6 +35,8 @@ Each subsequent function uses the data fetched using `fill_raw` and prepares it 
 The benefit of this is that during the prediction pipeline we wouldn't have to fetch the dataset each time a prediction is required. This would preprocess the data required before the prediction pipeline is executed.
 
 ## Applying Parallel Processing to `fill_data`
+
+---
 
 Since these functions are non-uniform in nature, we can not apply `mclapply` over them. The best case scenario would be to consider using `mcparallel` over them and assign each function to a different forked process.
 
@@ -90,6 +96,8 @@ As evident from the benchmark, it has been optimised by a significant amount.
 
 ## How does `cast` function works?
 
+---
+
 ```r
 cast <- function ( ... ) {
     ...
@@ -107,6 +115,8 @@ The `cast` function takes in a list of `models` it is going to use and the `end_
 Using those two parameters, it calls upon each model script sequentially.
 
 ## Applying Parallel Processing to `cast`
+
+---
 
 Applying `mclapply` over the `cast` would speed-up the process as a whole. Since each time the casting is initiated, all the chosen prediction models would start up in an *asynchronous* manner. It would also be great since the number of models that are present is 8 at max.
 
@@ -174,6 +184,8 @@ Unit: seconds
 The benchmark results were promising, as shown below, with the runtime significantly reduced when the models were executed in parallel.
 
 ## Conclusion
+
+---
 
 There was one other area where I did try to implement parallel processing, and that was the `portalcast` function. However, that failed to execute ~~and resulted in a lot of system crashes~~ because the function basically iterates over a number of *moons* and then prepares data in the data directory we created using the `fill_data` function and calls upon the `cast` function for that specific *moon.*
 

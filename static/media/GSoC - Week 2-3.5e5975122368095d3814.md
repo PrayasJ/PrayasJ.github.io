@@ -1,5 +1,7 @@
 # GSoC-Week 2-3
 
+---
+
 Hey everyone! I hope none of you are experiencing any syntax errors in your lives.
 
 Let us consider this project as an extremely dangerous and high-stakes top secret mission. (I have been watching Spy x Family. My bad.)
@@ -14,6 +16,8 @@ Me: "Bingo! You are a very smart person. ~~Lend me your brain.~~ "
 
 ## Understanding the Workflow
 
+---
+
 Working on a complex project, it is ideal to go over your plan of execution, think about your impact areas, particular functions, data models (if any), and flow of the programme that you are going to create or modify.
 
 There is another approach to development, which is choosing ***one*** feature to implement and then implementing it again by choosing yet another feature. However, I particularly am not fond of this approach, considering two things:
@@ -23,6 +27,8 @@ There is another approach to development, which is choosing ***one*** feature to
 2. Most complex projects, and sometimes even simpler projects, have functions you write that depend on another set of functions you write. The problem is created when you are required to go back and forth between these functions in order to make them support the new changes. With planning things before-hand, you'll be aware of the ***scope*** of that particular set of code.
 
 ## Deciding the Scope of the Project
+
+---
 
 The project is aimed at optimising the current Portalcasting codebase. Currently, every subtask present within the pipe to predict the rodent population is performed in a sequential order.
 
@@ -85,6 +91,8 @@ This gives us our first area where we can separate these six functions and apply
    Breaking these apart and running them into different forked threads would result in a decrease in the total runtime of the prediction workflow.
 
 ## Bye?
+
+---
 
 For now, my aim would be to look at all the possible ways to implement multiprocessing on this project, and decide what part of the project to start doing that on. We have shortlisted three areas:
 
