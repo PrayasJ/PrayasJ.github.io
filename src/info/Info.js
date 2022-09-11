@@ -13,6 +13,8 @@ import week4_5 from '../blogs/GSoC - Week 4-5.md'
 import week6 from '../blogs/GSoC - Week 6.md'
 import node_pkg from '../blogs/Creating Node.js packages.md'
 import week7_8 from '../blogs/GSoC - Week 7-8.md'
+import week9_10 from '../blogs/GSoC - Week 9-10.md'
+import week11_12 from '../blogs/GSoC - Week 11-12.md'
 
 /* Hi there! Thanks for checking out my portfolio template. Be sure to read the comments to get a better understanding of
 how to make this template work best for you! */
@@ -218,6 +220,16 @@ export const info = {
             title: 'Add Windows Support',
             md: week7_8,
             date: 'July 16, 2022'
+        },
+        {
+            title: 'Testing the Project\'s Performance',
+            md: week9_10,
+            date: 'August 5, 2022'
+        },
+        {
+            title: 'Adding Documentation',
+            md: week11_12,
+            date: 'August 18, 2022'
         }
     ]
 }

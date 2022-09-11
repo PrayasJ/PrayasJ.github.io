@@ -1,85 +1,124 @@
-## GSoC Week 9-10
+## GSoC Week 11-12
 
-Hey everyone!
+Hey Everyone! Since the project is nearing its end, it is time to wrap it up.
 
-Today we'll talk about how not all risks are successful and go over a few weeks of failed attempts.
+Let's start with some witty humour of course (sorry),
 
-As I previously stated, the performance increase in portalcasting after the parallelisation is twofolds (atleast on my device), and to verify and enhance that I took upon two roads (in parallel, haha). They were:
+```bash
+99 little bugs in the code,
+99 bugs in the code,
+fix one bug, compile again,
+100 little bugs in the code.
 
-1. Trying to parallelize `cast` function (which I have previously failed to do so),
+100 little bugs in the code, ...
+```
 
-2. Testing my implementation onto a high-powered system.
+Okay so moving on we'll be talking about documenting the work done so far.
 
-Let's begin talking about how these two went.
+## Adding `multiprocess` to docstringsreference
 
-## Why does `cast` function keep on failing?
+The project **Portalcasting** uses `Roxygen2` to add documentation to the project and build and deploy that documentation over at github pages. To give a gist of how `Roxygen2` works, they are essentially vanilla docstrings present within `R` just less cumbersome. 
 
-Whenever I try to run `cast` function in parallel, all the models start failing up when they try to predict the population, and they end up displaying this disheartening message.
+As an example to the `Roxygen2` docstrings within **Portalcasting**, 
 
-*****Insert failure log here later*****
+```haskell
+#' @title Read and Write Model Control Lists
+#'
+#' @description Input/output functions for model control lists.
+#'
+#' @param quiet \code{logical} indicator controlling if messages are printed.
+#'
+#' @param main \code{character} value of the name of the main component of the directory tree. 
+#'
+#' @param models \code{character} vector of name(s) of model(s) to include.
+#'
+#' @param settings \code{list} of controls for the directory, with defaults set in \code{\link{directory_settings}}.
+#'
+#' @param new_model_controls \code{list} of controls for any new models (not in the prefab models) listed in \code{models} that are to be added to the control list and file.
+#'
+#' @return \code{list} of \code{models}' control \code{list}s, \code{\link[base]{invisible}}-ly for \code{write_model_controls}.
+#'  
+#' @name read and write model controls
+#'
+#' @export
+#'
+```
 
-For a few days I kept hitting around the bush trying to figure out what could have broken so as to prevent any model from working and eventually came around to one section of the code, 
+Now the benefit of using `Roxygen2` is that it creates `man` pages for each of the `.R` file that we have into the `.Rd` format that we could utilise into our webpages for references.
 
-*****Insert code here*****
+I added the following docstring on necessary files that now support multiprocessing,
 
-In the code above, the directory having the data for the models to use is being reset after *iterating each `moon`*.  If done in sequential order reseting each time a model is run makes a sensible decision so as to prepare it for the next moon, but given how my current task is to speed up the process by parallelisation, reseting the directory causes a major data corruption of the data directory. Let's  break it down into steps to understand it better.
+```haskell
+#'
+#' @param multiprocess \code{character} (or \code{logical}) 
+#' configuration for mulit-processing, can be any value from \code{unix}, 
+#' \code{windows}, \code{TRUE}, \{FALSE}. Default value is \code{FALSE}.
+```
 
-Let us say our current cycle of code is trying to run three `models` ***M1***, ***M2*** and ***M3*** over two `moons` ***T1*** and ***T2***. 
+which defines that I have added a *param* `multiprocess` which supports 4 essential values,
 
-In the scenario where ***T1*** and ***T2*** are serialised, 
+1. `'windows'`,
 
-1. ***T1*** begins to run ***M1***, ***M2*** and ***M3***, irrespective of method of how they are executed be it serialised or parallel, they would be using the same input directory.
+2. `'unix'`,
 
-2. Upon completion of ***T1***, `fill_data` function is called upon and the directory is reset to support the new `moon`.
+3. `TRUE`,
 
-3. ***T2*** begins the same process with ***M1***, ***M2*** and ***M3***. 
+4. `FALSE`
 
-In this scenario, things work as intended and both ***T1*** and ***T2*** are executed in series. Moving onto our case, what if ***T1*** and ***T2*** are parallelised?
+The notion of this is that a windows system supports **only** `socket` based multiprocessing whereas a unix based system supports both `socket` and `fork` based multiprocessing. The default value is `FALSE`.
 
-In this scenario let us assume ***T1*** is faster than ***T2***, then,
+To provide the user with more control over it,
 
-1. ***T1*** and ***T2*** begin to run ***M1***, ***M2*** and ***M3*** simultaneously,
+1. If a user chooses `'windows'` then socket based multiprocessing would initiate, 
 
-2. ***T1*** completes its execution of the models,
+2. If a user chooses `'unix'` then fork based multiprocessing would initiate,
 
-3. The data directory is *partly* in **deadlock** due to ***T2*** executing the models using the data present within the data directory,
+3. If a user chooses `TRUE` then the device would automatically choose between `'windows'` or `'unix'` depending on whether the machine running the code is windows based or unix.
 
-4. ***T1*** tries to reset the directory after its execution however ***T2*** has some files in a state of **deadlock** due to which the data directory is partly reset.
+4. If a user chooses `FALSE` then the code would be executed linearly without multiprocessing.
 
-5. In the next iteration of computation, the data directory is to be considered as corrupted due to this.
+I added this docstring in 5 files namely `R/fill_dir.R`, `R/portalcast.R`, `R/prepare_covariates.R`, `R/prepare_rodents.R` and `R/setup_dir.R`.
 
-This is what I discovered after parallelising the `cast` function. In order to parallelise it, we need to make some architectural changes to how things are being handled and that would be difficult since the data directory acts as the backbone to all the essential functionality within the ***Portalcasting*** codebase.
+## Building the Documentation
 
-All the things that I just mentioned are a bit hypothetical due to the nature of how parallel computation works. This kind of a *bug* is referred to as a [*heisenbug*]([Heisenbug - Wikipedia](https://en.wikipedia.org/wiki/Heisenbug#:~:text=In%20computer%20programming%20jargon%2C%20a,one%20attempts%20to%20study%20it.)), therefore it has been difficult for me to track it down. Since parallelising `cast` function does work a number of times but in some extensive cases, it fails entirely.
+Now that we have created our project and added docstrings to it, its time to build up the documentation that would sit on the github pages.
 
-## Testing onto a high-powered Server
+First and foremost, we need to convert our `.R` files into `.Rd` files so that they are capable of being converted into `.html` files.
 
-Moving onto the performance issue, since a parallelised project is scallable proportionally to the device it is running on, it would be a great idea to test it all out on a server (atleast that's what I thought). Discussing it with my GSoC mentor, Henry, he provided me with the access to the server ***Portalcasting*** was currently being run on. Apart from that he explained to me how to run the project on the server. The catch being that the execution time of a process could potentially be in hours so it is ideal to create a detachable instance of the process.
+`Roxygen2` has a single command that iterates over all the `.R` to do so as follows,
 
-To achieve this task, a teminal multiplexer, `tmux` was used. The term sounds fancy but all in all, `tmux` provides a user with the ability to *create* multiple sessions within the same terminal. 
+```r
+roxygen2::roxygenise()
+```
 
-Let's just drop some `tmux` commands here in case someone needs them:
+Apart from `Roxygen2` another package called `devtools` has support for `Roxygen2` builds which has an even simpler method to create documentation,
 
-1. To show all the active sessions: `tmux ls`
+```r
+devtools::document()
+```
 
-2. To create new sessions: `tmux new -t <session-name>`
+Yet another method to build documentations is through a simple shortcut in **RStudio** that is `Ctrl + Shift + D`.
 
-3. To attach to created sessions: `tmux attach-session -t <session-name>`
+## Building Website for Documentation
 
-Moving on ahead, on the server, I used my previously explained [test file](https://github.com/PrayasJ/portalcasting/blob/multi-process/parallel.md) to test my set of code out. 
+Now that we have our hands on the documentation files in `.Rd` format, it is ideal to put these documentation in the public domain as a static website so to assist that **Portalcasting** uses the package `pkgdown` to build the documentation into static webpages.
 
-*****Insert test file*****
+Considering that the documentations have example code in them `pkgdown` also provides us with the ability to run the example code while building the static pages and displaying the output for the same in them. However for this project we won't be using that feature of `pkgdown`.
 
-Simply running `Rscript parallel-test.R | tee parallel-test.log` allowed me to run the complete test and pipe the output to a log file while detaching the session using `tmux`. This workflow for testing out my code has been a great help in order to figure out multiple issues in my implementation.
+To build using `pkgdown` we can simply use the command,
 
-There is however one task still lurking around that I need to figure out and implement in order to complete my GSoC project that is to write a test file which would allow any developer to verify the working of parallelism of the project objectively.
+```r
+pkgdown::build_site(examples = FALSE)
+```
+
+This is it! 
+
+upon running `pkgdown` a static build for the documetation is built in `docs` directory of the project.
 
 ## Conclusion
 
-These couple of weeks have been harsh due to these unexpected bugs and the nature of these bugs. I would have preferred it to work out in a single go but I'll keep on thinking of ways to optimise it further. Apart from that I believe the test file that I have written down would suffice as a test file to compare the functionality of the parallelism of the code. 
+Understanding how documentations work in `R` and how we could build static webpages for the same has been a great learning task for me because I haven't previously tried documenting my code. 
 
-I will be documenting my code and that would mark as the completion of my work for this project, I learnt a lot through the course of this project and am thankful for this opportunity.
+Morever **Weecology** has github actions to build and deploy these github pages which is pretty efficient to automate the task of deployment.
 
-Have a good day reader, thanks for making it to the end of this blogpost.
-
-Cya.
+I will be working on a **vignette** to act as a guide on how to use multiprocessing with **Portalcasting**, see ya later, `q()`.

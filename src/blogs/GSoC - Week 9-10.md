@@ -16,11 +16,33 @@ Let's begin talking about how these two went.
 
 Whenever I try to run `cast` function in parallel, all the models start failing up when they try to predict the population, and they end up displaying this disheartening message.
 
-*****Insert failure log here later*****
+```bash
+  |----| ESSS failed |----|
+  |----| ESSS failed |----|
+  |----| ESSS failed |----|
+  |----| ESSS failed |----|
+  |----| AutoArima failed |----|
+  |----| AutoArima failed |----|
+  |----| AutoArima failed |----|
+  |----| AutoArima failed |----|
+  |----| AutoArima failed |----|
+  |----| AutoArima failed |----|
+```
 
-For a few days I kept hitting around the bush trying to figure out what could have broken so as to prevent any model from working and eventually came around to one section of the code, 
+For a few days I kept hitting around the bush trying to figure out what could have broken so as to prevent any model from working and eventually came around to one section of the code in the `cast` function, 
 
-*****Insert code here*****
+```r
+ messageq(message_break(), "\nReadying data for forecast origin newmoon ", 
+     end_moon, "\n", message_break(), quiet = quiet)
+  if (end_moon != last_moon) {
+    fill_data(main     = main, 
+              datasets = datasets,
+              models   = models,
+              settings = settings,
+              quiet    = quiet, 
+              verbose  = verbose)
+  }
+```
 
 In the code above, the directory having the data for the models to use is being reset after *iterating each `moon`*.  If done in sequential order reseting each time a model is run makes a sensible decision so as to prepare it for the next moon, but given how my current task is to speed up the process by parallelisation, reseting the directory causes a major data corruption of the data directory. Let's  break it down into steps to understand it better.
 
@@ -50,7 +72,7 @@ In this scenario let us assume ***T1*** is faster than ***T2***, then,
 
 This is what I discovered after parallelising the `cast` function. In order to parallelise it, we need to make some architectural changes to how things are being handled and that would be difficult since the data directory acts as the backbone to all the essential functionality within the ***Portalcasting*** codebase.
 
-All the things that I just mentioned are a bit hypothetical due to the nature of how parallel computation works. This kind of a *bug* is referred to as a [*heisenbug*]([Heisenbug - Wikipedia](https://en.wikipedia.org/wiki/Heisenbug#:~:text=In%20computer%20programming%20jargon%2C%20a,one%20attempts%20to%20study%20it.)), therefore it has been difficult for me to track it down. Since parallelising `cast` function does work a number of times but in some extensive cases, it fails entirely.
+All the things that I just mentioned are a bit hypothetical due to the nature of how parallel computation works. This kind of a *bug* is referred to as a [*Heisenbug*](https://en.wikipedia.org/wiki/Heisenbug#:~:text=In%20computer%20programming%20jargon%2C%20a,one%20attempts%20to%20study%20it.), therefore it has been difficult for me to track it down. Since parallelising `cast` function does work a number of times but in some extensive cases, it fails entirely.
 
 ## Testing onto a high-powered Server
 
@@ -68,7 +90,43 @@ Let's just drop some `tmux` commands here in case someone needs them:
 
 Moving on ahead, on the server, I used my previously explained [test file](https://github.com/PrayasJ/portalcasting/blob/multi-process/parallel.md) to test my set of code out. 
 
-*****Insert test file*****
+```r
+library(microbenchmark)
+library(portalcasting)
+
+main <- "~/portalcast_directory_test"
+models <- c("ESSS", "AutoArima")
+end_moons <- 520:525
+
+setup_production(main = main)
+
+microbenchmark(
+        linear = {
+                portalcast(
+                    main = main, 
+                    models=models, 
+                    end_moons = end_moons
+                )
+        },
+        windows = {
+                portalcast(
+                    main = main, 
+                    models=models, 
+                    end_moons = end_moons, 
+                    multiprocess = 'windows'
+                )
+        },
+        unix = {
+                portalcast(
+                    main = main, 
+                    models=models, 
+                    end_moons = end_moons, 
+                    multiprocess = 'unix'
+                )
+        },
+        times = 1
+)
+```
 
 Simply running `Rscript parallel-test.R | tee parallel-test.log` allowed me to run the complete test and pipe the output to a log file while detaching the session using `tmux`. This workflow for testing out my code has been a great help in order to figure out multiple issues in my implementation.
 
