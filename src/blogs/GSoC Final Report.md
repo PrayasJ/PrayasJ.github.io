@@ -77,8 +77,6 @@ My work can be found at [**PR #293**](https://github.com/weecology/portalcasting
 
 The above pull request contains all the necessary changes made by me to make **Portalcasting** support multiprocessing.
 
-My weekly progress can be found [here](https://prayasj.github.io/#/blogs).
-
 | Title                             | Date            | Link                                        |
 | --------------------------------- | --------------- | ------------------------------------------- |
 | Selection to GSoC                 | May 22, 2022    | [Here](https://prayasj.github.io/#/blogs/0) |
@@ -89,6 +87,8 @@ My weekly progress can be found [here](https://prayasj.github.io/#/blogs).
 | Add Windows Support               | July 16, 2022   | [Here](https://prayasj.github.io/#/blogs/5) |
 | Testing the Project's Performance | August 5, 202   | [Here](https://prayasj.github.io/#/blogs/6) |
 | Adding Documentation              | August 18, 2022 | [Here](https://prayasj.github.io/#/blogs/7) |
+
+My weekly progress can be found [here](https://prayasj.github.io/#/blogs).
 
 ## My Learnings and Research tasks
 

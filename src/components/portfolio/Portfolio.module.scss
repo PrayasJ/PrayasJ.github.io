@@ -53,3 +53,18 @@
 
 //     }
 // }
+
+tr {
+  border-top: 1px solid white;
+  background: none;
+}
+
+th,
+td {
+  padding: 6px 13px;
+  border: 1px solid white;
+}
+
+table tr:nth-child(2n) {
+  background: #35323c;
+}
