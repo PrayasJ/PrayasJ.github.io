@@ -79,7 +79,18 @@ The above pull request contains all the necessary changes made by me to make **P
 
 My weekly progress can be found [here](https://prayasj.github.io/#/blogs).
 
-## My Learnings
+| Title                             | Date            | Link                                        |
+| --------------------------------- | --------------- | ------------------------------------------- |
+| Selection to GSoC                 | May 22, 2022    | [Here](https://prayasj.github.io/#/blogs/0) |
+| Understanding Portal Project      | June 13, 2022   | [Here](https://prayasj.github.io/#/blogs/1) |
+| Parallel Processing in R          | June 25, 2022   | [Here](https://prayasj.github.io/#/blogs/2) |
+| Parallel Casting Function         | July 2, 2022    | [Here](https://prayasj.github.io/#/blogs/3) |
+| Creating Node.js Packages         | July 11, 2022   | [Here](https://prayasj.github.io/#/blogs/4) |
+| Add Windows Support               | July 16, 2022   | [Here](https://prayasj.github.io/#/blogs/5) |
+| Testing the Project's Performance | August 5, 202   | [Here](https://prayasj.github.io/#/blogs/6) |
+| Adding Documentation              | August 18, 2022 | [Here](https://prayasj.github.io/#/blogs/7) |
+
+## My Learnings and Research tasks
 
 ---
 
