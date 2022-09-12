@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.a2b5904c.css",
-    "main.js": "/static/js/main.73f123df.js",
+    "main.js": "/static/js/main.4715e8c6.js",
     "static/media/self.png": "/static/media/self.689bd680aeb18d8a5724.png",
     "static/media/bwvn.png": "/static/media/bwvn.da07b1513f5fa89dad9a.png",
     "static/media/greenable.png": "/static/media/greenable.d0efd5018c0b4efc606e.png",
@@ -19,17 +19,17 @@
     "static/media/GSoC - Week 7-8.md": "/static/media/GSoC - Week 7-8.48a99a1198b19440a782.md",
     "static/media/GSoC - Week 9-10.md": "/static/media/GSoC - Week 9-10.eeefe0af760f47a4427c.md",
     "static/media/GSoC - Week 6.md": "/static/media/GSoC - Week 6.3a9fb9695e733297e88a.md",
-    "static/media/GSoC Final Report.md": "/static/media/GSoC Final Report.585c2e6b8a4924a63ea0.md",
     "static/media/GSoC - Week 2-3.md": "/static/media/GSoC - Week 2-3.5e5975122368095d3814.md",
+    "static/media/GSoC Final Report.md": "/static/media/GSoC Final Report.8ca91cddfc2469657970.md",
     "static/media/Creating Node.js packages.md": "/static/media/Creating Node.js packages.e97dc6e080430d9bb44b.md",
     "static/media/GSoC - Week 11-12.md": "/static/media/GSoC - Week 11-12.0698be17be3ab0115e63.md",
     "static/media/GSoC - Week 1.md": "/static/media/GSoC - Week 1.bce08c88d996d1322ff7.md",
     "index.html": "/index.html",
     "main.a2b5904c.css.map": "/static/css/main.a2b5904c.css.map",
-    "main.73f123df.js.map": "/static/js/main.73f123df.js.map"
+    "main.4715e8c6.js.map": "/static/js/main.4715e8c6.js.map"
   },
   "entrypoints": [
     "static/css/main.a2b5904c.css",
-    "static/js/main.73f123df.js"
+    "static/js/main.4715e8c6.js"
   ]
 }

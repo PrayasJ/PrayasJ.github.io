@@ -39,7 +39,7 @@ The aim of this project was to make the currently running forecasting system cap
 
 This was achieved by applying a forked parallelization method on the embarrassingly parallel problem available within the project currently.
 
-You can read more about the project [here](https://summerofcode.withgoogle.com/media/user/93201a7f92cf/proposal/gAAAAABjHcXXWWx2MV3Y8H_8mC__S8fcqcEGR786ouHlYWGcoWkfDpOwr4f5BT-YrDg4Zb3AQSd1WsY9NMKWFyboAQ-Dkj9t_H1ChQpstO9iu4lDQR53O2Q=.pdf).
+You can read more about the project [here](https://docs.google.com/document/d/16n46EzGLcrOR2LiJXBI_96rgJt1CkoPCGJEm8FqVkkY/edit?usp=sharing).
 
 The codebase for Portalcasting can be found [here](https://github.com/weecology/portalcasting).
 
