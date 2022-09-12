@@ -27,6 +27,13 @@ const CodeBlock = {
         {children}
       </code>
     )
+  },
+  a: function (props) {
+    return (
+      <a href={props.href} target="_blank" rel="noreferrer">
+        {props.children}
+      </a>
+    );
   }
 }
 

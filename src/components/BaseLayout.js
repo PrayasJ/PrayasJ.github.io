@@ -13,7 +13,7 @@ import { Scrollbars } from "react-custom-scrollbars-2";
 import AnimatedCursor from 'react-animated-cursor';
 
 export default function BaseLayout() {
-   let [darkMode, setDarkMode] = useState(true);
+   let [darkMode, setDarkMode] = useState(false);
 
    function handleClick() {
       setDarkMode(!darkMode);

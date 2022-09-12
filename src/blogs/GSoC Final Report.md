@@ -126,6 +126,6 @@ I plan to continue contributing to Weecology after the completion of GSoC'22 and
 
 The project would not have been possible without the support of my mentors.
 
-I would like to thank Henry for being there every week to provide with guidance with the project and help pave the direction towards where I should be building it.
+I would like to thank Henry Senyondo for being there every week to provide with guidance with the project and help pave the direction towards where I should be building it.
 
-I would also like to thank Juniper for writing the codebase for Portalcasting which was written in such a way that implementing multiprocessing was swift in it.
+I would also like to thank Juniper Simonis for writing the codebase for Portalcasting which was written in such a way that implementing multiprocessing was swift in it.

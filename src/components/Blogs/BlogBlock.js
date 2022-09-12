@@ -34,6 +34,8 @@ class BlogBlock extends Component {
 		})
 	}
 
+
+
 	render() {
 		return (
 			<Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
@@ -41,7 +43,7 @@ class BlogBlock extends Component {
 					<Link to={`${this.state.index}`}>
 						<p style={{ fontSize: '2rem', color: 'dodgerblue' }}>{this.state.title}</p>
 						<ReactMarkdown components={CodeBlock} children={this.state.text} remarkPlugins={[remarkGfm]} />
-						<p style={{color: 'lightskyblue'}}>{this.state.date}</p>
+						<p style={{ color: 'lightskyblue' }}>{this.state.date}</p>
 					</Link>
 				</Box>} />
 			</Box>
